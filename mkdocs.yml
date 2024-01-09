@@ -1,0 +1,87 @@
+site_name: Wiki Vector Search
+site_description: Semantic search over Wikipedia articles
+site_url: https://github.com/selfint/wiki-vector-search
+theme:
+  name: material
+  palette:
+  - media: '(prefers-color-scheme: light)'
+    scheme: default
+    primary: teal
+    accent: amber
+    toggle:
+      icon: material/lightbulb
+      name: Switch to dark mode
+  - media: '(prefers-color-scheme: dark)'
+    scheme: slate
+    primary: teal
+    accent: amber
+    toggle:
+      icon: material/lightbulb-outline
+      name: Switch to light mode
+  features:
+  - search.suggest
+  - search.highlight
+  - content.tabs.link
+  - navigation.indexes
+  - content.tooltips
+  - navigation.path
+  - content.code.annotate
+  - content.code.copy
+  - content.code.select
+  - navigation.tabs
+  icon:
+    repo: fontawesome/brands/github-alt
+  logo: img/logo.png
+  favicon: img/logo.png
+  language: en
+repo_name: selfint/wiki-vector-search
+repo_url: https://github.com/selfint/wiki-vector-search
+edit_uri: ''
+plugins:
+  search: null
+  mkdocstrings:
+    handlers:
+      python:
+        options:
+          extensions:
+            - griffe_typingdoc
+          show_root_heading: true
+          show_if_no_docstring: true
+          preload_modules: []
+          inherited_members: true
+          members_order: source
+          separate_signature: true
+          unwrap_annotated: true
+          filters: ["!^_"]
+          merge_init_into_class: true
+          docstring_section_style: spacy
+          signature_crossrefs: true
+          show_symbol_type_heading: true
+          show_symbol_type_toc: true
+nav:
+- Wiki vector search: index.md
+markdown_extensions:
+  toc:
+    permalink: true
+  markdown.extensions.codehilite:
+    guess_lang: false
+  # mdx_include:
+  #   base_path: docs
+  admonition: null
+  codehilite: null
+  extra: null
+  # pymdownx.superfences:
+  #   custom_fences:
+  #   - name: mermaid
+  #     class: mermaid
+  #     format: !!python/name:pymdownx.superfences.fence_code_format ''
+  # pymdownx.tabbed:
+  #   alternate_style: true
+  attr_list: null
+  md_in_html: null
+extra:
+  social:
+  - icon: fontawesome/brands/github-alt
+    link: https://github.com/selfint/wiki-vector-search
+  - icon: fontawesome/brands/dev
+    link: https://github.com/selfint
