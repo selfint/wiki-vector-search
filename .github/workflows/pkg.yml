@@ -68,4 +68,5 @@ jobs:
         with:
           prerelease: ${{ github.ref_name == 'main' }}
           tag_name: ${{ github.ref_name == 'main' && 'nightly' || github.ref_name }}
+          generate_release_notes: true
           files: dist/*
