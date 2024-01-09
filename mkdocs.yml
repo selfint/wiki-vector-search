@@ -66,18 +66,9 @@ markdown_extensions:
     permalink: true
   markdown.extensions.codehilite:
     guess_lang: false
-  # mdx_include:
-  #   base_path: docs
   admonition: null
   codehilite: null
   extra: null
-  # pymdownx.superfences:
-  #   custom_fences:
-  #   - name: mermaid
-  #     class: mermaid
-  #     format: !!python/name:pymdownx.superfences.fence_code_format ''
-  # pymdownx.tabbed:
-  #   alternate_style: true
   attr_list: null
   md_in_html: null
 extra:
