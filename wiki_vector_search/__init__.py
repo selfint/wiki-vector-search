@@ -1,6 +1,8 @@
 from typing import Annotated
 from typing_extensions import Doc
 
+__version__ = "0.1.0"
+
 
 class WVS:
     """Wiki Vector Search"""
