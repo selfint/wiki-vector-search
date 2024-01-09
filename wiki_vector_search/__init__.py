@@ -14,6 +14,8 @@ class WVS:
         """
         Greet a name.
 
+        [test][wiki_vector_search.WVS.world]
+
         **Example**
         ```python
 
