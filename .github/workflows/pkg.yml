@@ -62,12 +62,6 @@ jobs:
         run: poetry install
       - name: Build
         run: poetry build
-      - name: Run latest-tag
-        if: github.ref_name == 'main'
-        uses: EndBug/latest-tag@latest
-        with:
-          ref: nightly
-          description: Nightly version
       - name: Release
         uses: softprops/action-gh-release@v1
         with:
