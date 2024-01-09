@@ -2,4 +2,4 @@ import wiki_vector_search as wvs
 
 
 def test_hello():
-    assert wvs.WVS().hello() == "world"
+    assert wvs.WVS().greet("user") == "Hello, User!"
