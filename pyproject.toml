@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "wiki-vector-search"
+version = "0.1.0"
+description = "Semantic search over Wikipedia articles"
+authors = ["selfint <selfint@gmail.com>"]
+license = "Apache 2.0"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.4.4"
+mkdocstrings-python = "^1.8.0"
+mkdocs = "^1.5.3"
+mkdocs-material = "^9.5.3"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
