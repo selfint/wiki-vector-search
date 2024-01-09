@@ -59,7 +59,8 @@ plugins:
           show_symbol_type_heading: true
           show_symbol_type_toc: true
 nav:
-- Wiki vector search: index.md
+- Quickstart: quickstart.md
+- Reference: reference.md
 markdown_extensions:
   toc:
     permalink: true
