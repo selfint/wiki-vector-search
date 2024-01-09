@@ -48,7 +48,7 @@ jobs:
       - name: Install deps
         run: poetry install
       - name: Build
-        run: poetry run build
+        run: poetry build
       - name: Release
         uses: softprops/action-gh-release@v1
         with:
