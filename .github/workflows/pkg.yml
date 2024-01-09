@@ -26,4 +26,4 @@ jobs:
           poetry run isort --profile black .
           poetry run black .
       - name: Test
-        run: poetry run pytest
+        run: poetry run pytest --doctest-modules
