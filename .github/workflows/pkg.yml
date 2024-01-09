@@ -38,6 +38,7 @@ jobs:
     permissions:
       contents: write
     steps:
+      - uses: actions/checkout@v4
       - name: Run latest-tag
         if: github.ref_name == 'main'
         uses: EndBug/latest-tag@latest
