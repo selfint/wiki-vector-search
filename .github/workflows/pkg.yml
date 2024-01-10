@@ -34,7 +34,7 @@ jobs:
 
   release:
     needs: test
-    if: startsWith(github.ref, 'refs/tags/') || github.ref_name == 'main'
+    if: startsWith(github.ref, 'refs/tags/')
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -51,22 +51,8 @@ jobs:
         run: poetry install
       - name: Build
         run: poetry build
-      - name: Tag nightly
-        if: github.ref_name == 'main'
-        uses: EndBug/latest-tag@latest
-        with:
-          ref: nightly
-          description: Nightly version
-      - name: Rename dist files
-        if: github.ref_name == 'main'
-        run: |
-          version=$(poetry run python -c "import wiki_vector_search as wvs; print(wvs.__version__)")
-          mv dist/wiki_vector_search-$version-py3-none-any.whl dist/wiki_vector_search-nightly-py3-none-any.whl
-          mv dist/wiki_vector_search-$version.tar.gz dist/wiki_vector_search-nightly.tar.gz
       - name: Release
         uses: softprops/action-gh-release@v1
         with:
-          prerelease: ${{ github.ref_name == 'main' }}
-          tag_name: ${{ github.ref_name == 'main' && 'nightly' || github.ref_name }}
           generate_release_notes: true
           files: dist/*
