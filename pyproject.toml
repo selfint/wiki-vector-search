@@ -7,8 +7,10 @@ license = "Apache 2.0"
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.9"
+python = "^3.9,<3.12"
 wikipedia-api = "^0.6.0"
+sentence-transformers = { version = "^2.2.2", optional = true }
+torch = { version = "^2.1.2", optional = true }
 
 
 [tool.poetry.group.dev.dependencies]
@@ -19,7 +21,9 @@ mkdocs-material = "^9.5.3"
 griffe-typingdoc = "^0.2.4"
 black = "^23.12.1"
 isort = "^5.13.2"
-transformers = "^4.36.2"
+
+[tool.poetry.extras]
+fe = ["sentence-transformers"]
 
 [build-system]
 requires = ["poetry-core"]
