@@ -39,7 +39,6 @@ repo_url: https://github.com/selfint/wiki-vector-search
 edit_uri: ''
 plugins:
 - search
-- section-index
 - mkdocstrings:
     handlers:
       python:
@@ -47,9 +46,6 @@ plugins:
         - https://docs.python.org/3/objects.inv
         - https://wikipedia-api.readthedocs.io/en/latest/objects.inv
         options:
-          preload_modules:
-          - wikipediaapi
-          - wiki_vector_search
           extensions:
           - griffe_typingdoc
           filters: ["!^_"]
@@ -63,6 +59,12 @@ plugins:
           show_symbol_type_toc: true
           signature_crossrefs: true
           unwrap_annotated: true
+          heading_level: 1
+          inherited_members: true
+          show_root_full_path: false
+          show_source: false
+          summary: true
+          docstring_section_style: spacy
 nav:
 - Wiki Vector Search: index.md
 - Reference: reference.md
