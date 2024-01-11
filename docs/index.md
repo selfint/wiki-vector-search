@@ -1,5 +1,9 @@
 # Quickstart
 
+## Test
+
+[client][wikipediaapi.Wikipedia]
+
 ## Installation
 
 Supports Python 3.9+.
