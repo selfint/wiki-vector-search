@@ -86,14 +86,13 @@ class STProvider(LLMProvider[T]):
     def search(
         self,
         query_embeddings: T,
-        corpus: list[str],
         corpus_embeddings: T,
         top_k: int,
-    ) -> list[list[str]]:
+    ) -> list[list[int]]:
         hits = semantic_search(
             query_embeddings=query_embeddings,  # type: ignore
             corpus_embeddings=corpus_embeddings,  # type: ignore
             top_k=top_k,
         )
 
-        return [[corpus[h["corpus_id"]] for h in query_hits] for query_hits in hits]
+        return [[h["corpus_id"] for h in query_hits] for query_hits in hits]

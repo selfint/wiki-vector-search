@@ -1,5 +1,5 @@
 # serializer version: 1
-# name: test_hf_embed
+# name: test_embed
   list([
     list([
       -8,
@@ -775,7 +775,7 @@
     ]),
   ])
 # ---
-# name: test_hf_search
+# name: test_search
   list([
     tuple(
       "What is the pet's name?",

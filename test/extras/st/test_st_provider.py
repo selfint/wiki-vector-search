@@ -16,7 +16,7 @@ def st_provider() -> LLMProvider:
     return _st_provider()
 
 
-def test_hf_embed(st_provider, snapshot):
+def test_embed(st_provider, snapshot):
     embedding = st_provider.embed_corpus(["this is a test", "and another test"])
 
     # snapshot first 2 digits to bypass float issues
@@ -25,7 +25,7 @@ def test_hf_embed(st_provider, snapshot):
     assert snap == snapshot
 
 
-def test_hf_search(st_provider, snapshot):
+def test_search(st_provider, snapshot):
     corpus = [
         "The name of the dog is Kevin",
         "The house is blue",
@@ -41,11 +41,11 @@ def test_hf_search(st_provider, snapshot):
     top_k = 1
     results = st_provider.search(
         st_provider.embed_queries(queries),
-        corpus,
         st_provider.embed_corpus(corpus),
         top_k=top_k,
     )
 
     assert [len(r) for r in results] == [top_k] * len(results)
+    results = [[corpus[i] for i in r] for r in results]
 
     assert list(zip(queries, results)) == snapshot

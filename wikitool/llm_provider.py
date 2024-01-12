@@ -16,8 +16,7 @@ class LLMProvider(Protocol[T]):
     def search(
         self,
         query_embeddings: T,
-        corpus: list[str],
         corpus_embeddings: T,
         top_k: int,
-    ) -> list[list[str]]:
+    ) -> list[list[int]]:
         ...
