@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "wiki-vector-search"
+name = "wikitool"
 version = "0.1.0"
 description = "Semantic search over Wikipedia articles"
 authors = ["selfint <selfint@gmail.com>"]
@@ -10,7 +10,6 @@ readme = "README.md"
 python = "^3.9,<3.12"
 wikipedia-api = "^0.6.0"
 sentence-transformers = { version = "^2.2.2", optional = true }
-torch = { version = "^2.1.2", optional = true }
 
 
 [tool.poetry.group.dev.dependencies]
@@ -21,9 +20,13 @@ mkdocs-material = "^9.5.3"
 griffe-typingdoc = "^0.2.4"
 black = "^23.12.1"
 isort = "^5.13.2"
+syrupy = "^4.6.0"
+mkdocs-gen-files = "^0.5.0"
+mkdocs-literate-nav = "^0.6.1"
+mkdocs-section-index = "^0.3.8"
 
 [tool.poetry.extras]
-fe = ["sentence-transformers"]
+st = ["sentence-transformers"]
 
 [build-system]
 requires = ["poetry-core"]

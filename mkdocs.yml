@@ -1,6 +1,6 @@
-site_name: Wiki Vector Search
+site_name: Wiki Tool
 site_description: Semantic search over Wikipedia articles
-site_url: https://github.com/selfint/wiki-vector-search
+site_url: https://github.com/selfint/wikitool
 theme:
   name: material
   palette:
@@ -34,11 +34,16 @@ theme:
   logo: img/logo.png
   favicon: img/logo.png
   language: en
-repo_name: selfint/wiki-vector-search
-repo_url: https://github.com/selfint/wiki-vector-search
+repo_name: selfint/wikitool
+repo_url: https://github.com/selfint/wikitool
 edit_uri: ''
 plugins:
 - search
+- gen-files:
+    scripts:
+      - scripts/generate_reference.py
+- literate-nav:
+    nav_file: SUMMARY.md
 - mkdocstrings:
     handlers:
       python:
@@ -66,8 +71,8 @@ plugins:
           summary: true
           docstring_section_style: spacy
 nav:
-- Wiki Vector Search: index.md
-- Reference: reference.md
+- Wiki Tool: index.md
+- Code Reference: reference/
 markdown_extensions:
 - toc:
     permalink: true
@@ -80,6 +85,6 @@ extra_css:
 extra:
   social:
   - icon: fontawesome/brands/github-alt
-    link: https://github.com/selfint/wiki-vector-search
+    link: https://github.com/selfint/wikitool
   - icon: fontawesome/brands/dev
     link: https://github.com/selfint
