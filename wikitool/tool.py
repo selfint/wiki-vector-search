@@ -1,16 +1,19 @@
-from typing import Callable
+from typing import Callable, TypeAlias
 from transformers import PreTrainedTokenizerFast
 import collections
 from functools import partial
 
 
-def Tree():
-    return collections.defaultdict(Tree)
+Tree: TypeAlias = dict[str, tuple[str, "Tree"]]
 
 
-def build_tree(sections, tree=None) -> Tree:
+def _tree() -> collections.defaultdict:
+    return collections.defaultdict(_tree)
+
+
+def build_tree(sections, tree: Tree | None = None) -> Tree:
     if tree is None:
-        tree = Tree()
+        tree = _tree()
 
     for s in sections:
         tree[s.title] = (s.text, build_tree(s.sections))

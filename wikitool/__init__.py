@@ -29,4 +29,4 @@ class WikiTool:
             ```
         """
         self._client = client
-        self._llm = llm_provider
+        self._llm = llm
