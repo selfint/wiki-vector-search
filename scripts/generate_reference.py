@@ -16,8 +16,6 @@ for path in sorted(src.rglob("*.py")):
     full_doc_path = Path("reference", doc_path)
 
     parts = tuple(module_path.parts)
-    print("#" * 100, src, file=sys.stderr)
-    print("#" * 100, parts, file=sys.stderr)
 
     if parts[-1] == "__init__":
         parts = parts[:-1]
@@ -26,7 +24,6 @@ for path in sorted(src.rglob("*.py")):
     elif parts[-1] == "__main__":
         continue
 
-    print("#" * 100, parts, file=sys.stderr)
     parts = ("wikitool", *parts)
     nav[parts] = doc_path.as_posix()
 
