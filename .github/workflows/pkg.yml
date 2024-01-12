@@ -24,7 +24,7 @@ jobs:
           python-version: ${{ matrix.python-version }}
           cache: "poetry"
       - name: Install deps
-        run: poetry install
+        run: poetry install --all-extras
       - name: Lint
         run: |
           poetry run isort --profile black .
@@ -48,7 +48,7 @@ jobs:
           python-version: 3.11
           cache: "poetry"
       - name: Install deps
-        run: poetry install
+        run: poetry install --all-extras
       - name: Build
         run: poetry build
       - name: Release
