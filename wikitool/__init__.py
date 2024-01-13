@@ -103,7 +103,20 @@ class WikiTool:
         for query in queries:
             results = self._source.search(query)
             for result in results:
-                texts = self._llm.chunk(result["text"], chunk_size, chunk_overlap)
+                header = (
+                    "\n".join(
+                        f"{'#' * (i + 1)} {t}"
+                        for i, t in enumerate(result["meta"]["titles"])
+                    )
+                    + "\n"
+                )
+
+                texts = self._llm.chunk(
+                    header,
+                    result["text"],
+                    chunk_size,
+                    chunk_overlap,
+                )
                 chunks.extend(texts)
 
         corpus_embeddings = self._llm.embed_corpus(chunks)

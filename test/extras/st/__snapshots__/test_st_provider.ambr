@@ -1,10 +1,21 @@
 # serializer version: 1
 # name: test_chunk
   list([
-    'The quick brown',
-    'brown fox jumps',
-    'jumps over the',
-    'the lazy dog',
+    '''
+      # Title
+      ## Title2
+      The quick brown fox
+    ''',
+    '''
+      # Title
+      ## Title2
+      fox jumps over the
+    ''',
+    '''
+      # Title
+      ## Title2
+      the lazy dog
+    ''',
   ])
 # ---
 # name: test_embed

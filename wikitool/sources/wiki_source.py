@@ -78,10 +78,8 @@ def build_tree(
 
 
 def build_text_chunk(text: str, titles: list[str]) -> Chunk:
-    header = "\n".join(f"{'#' * (i + 1)} {t}" for i, t in enumerate(titles)) + "\n"
-
     return {
-        "text": header + text,
+        "text": text,
         "meta": {
             "titles": titles,
         },
