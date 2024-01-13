@@ -30,7 +30,7 @@ def test_embed(st_provider, snapshot):
 def test_chunk(st_provider, snapshot):
     text = "The quick brown fox jumps over the lazy dog"
 
-    chunks = st_provider.chunk(text, 3, 1)
+    chunks = st_provider.chunk("# Title\n## Title2\n", text, 10, 1)
 
     assert chunks == snapshot
 
