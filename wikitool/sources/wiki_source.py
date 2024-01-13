@@ -2,7 +2,7 @@ import collections
 from typing import TypeAlias, TypedDict
 
 import requests
-from wikipediaapi import Wikipedia
+from wikipediaapi import Wikipedia, WikipediaPageSection
 
 
 class ChunkMeta(TypedDict):
@@ -64,7 +64,10 @@ def _tree() -> collections.defaultdict:
     return collections.defaultdict(_tree)
 
 
-def build_tree(sections, tree: _Tree | None = None) -> _Tree:
+def build_tree(
+    sections: list[WikipediaPageSection],
+    tree: _Tree | None = None,
+) -> _Tree:
     if tree is None:
         tree = _tree()
 
