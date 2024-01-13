@@ -10,7 +10,7 @@ from wikitool.llm_provider import LLMProvider
 def _st_provider() -> STProvider:
     """Only load model once"""
 
-    return STProvider("thenlper/gte-small", half=True)
+    return STProvider("thenlper/gte-small", device="cpu")
 
 
 @pytest.fixture
