@@ -10,6 +10,7 @@ readme = "README.md"
 python = ">=3.10"
 wikipedia-api = "^0.6.0"
 sentence-transformers = { version = "^2.2.2", optional = true }
+typing-extensions = "^4.8.0"
 
 
 [tool.poetry.group.dev.dependencies]
