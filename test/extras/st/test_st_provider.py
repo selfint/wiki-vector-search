@@ -1,5 +1,7 @@
-import pytest
 from functools import lru_cache
+
+import pytest
+
 from wikitool.extras.st_provider import STProvider
 from wikitool.llm_provider import LLMProvider
 
