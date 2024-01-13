@@ -27,8 +27,8 @@ jobs:
         run: poetry install --all-extras
       - name: Lint
         run: |
-          poetry run isort --profile black .
-          poetry run black .
+          poetry run isort --profile black --check --diff wikitool test
+          poetry run black --check --diff wikitool test
       - name: Test
         run: poetry run pytest --doctest-modules
 
