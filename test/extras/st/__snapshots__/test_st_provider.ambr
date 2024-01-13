@@ -1,4 +1,12 @@
 # serializer version: 1
+# name: test_chunk
+  list([
+    'The quick brown',
+    'brown fox jumps',
+    'jumps over the',
+    'the lazy dog',
+  ])
+# ---
 # name: test_embed
   list([
     list([

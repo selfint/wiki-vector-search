@@ -19,7 +19,11 @@ class STProvider(LLMProvider[T]):
         instruction: str | None = None,
         device: str | None = None,
         half: bool = False,
+        chunk_size: int | None = None,
+        chunk_overlap: int | None = None,
     ) -> None:
+        self._chunk_size = chunk_size
+        self._chunk_overlap = chunk_overlap
         self._device = device or (
             "cuda"
             if torch.cuda.is_available()
@@ -60,13 +64,28 @@ class STProvider(LLMProvider[T]):
             convert_to_tensor=self._device != "cpu",
         )  # type: ignore
 
-    def chunk(self, text: str, size: int, overlap: int) -> list[str]:
+    def chunk(
+        self,
+        text: str,
+        size: int | None = None,
+        overlap: int | None = None,
+    ) -> list[str]:
+        size = self._chunk_size if size is None else size
+        overlap = self._chunk_overlap if overlap is None else overlap
+
+        if size is None:
+            raise AssertionError(
+                "Must specify `chunk_size` in init or `size` in chunk."
+            )
+        if overlap is None:
+            raise AssertionError(
+                "Must specify `chunk_overlap` in init or `overlap` in chunk."
+            )
+
         if len(text) <= 1:
             return [text]
 
-        tokenizer: PreTrainedTokenizerFast = self._pipe.tokenizer  # type: ignore
-
-        tokens = tokenizer.tokenize(
+        tokens = self._tokenizer(
             text,
             max_length=size,
             stride=overlap,

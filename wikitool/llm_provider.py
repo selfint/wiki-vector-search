@@ -10,7 +10,12 @@ class LLMProvider(Protocol[T]):
     def embed_corpus(self, texts: list[str] | str) -> T:
         ...
 
-    def chunk(self, text: str, size: int, overlap: int) -> list[str]:
+    def chunk(
+        self,
+        text: str,
+        size: int | None = None,
+        overlap: int | None = None,
+    ) -> list[str]:
         ...
 
     def search(

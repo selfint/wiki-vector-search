@@ -10,5 +10,5 @@ def mock_llm_provider() -> LLMProvider:
 
 
 @pytest.fixture
-def mock_wiki() -> WikiProvider:
+def mock_wiki_provider() -> WikiProvider:
     return MagicMock(spec=WikiProvider)

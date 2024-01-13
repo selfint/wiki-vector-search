@@ -25,6 +25,14 @@ def test_embed(st_provider, snapshot):
     assert snap == snapshot
 
 
+def test_chunk(st_provider, snapshot):
+    text = "The quick brown fox jumps over the lazy dog"
+
+    chunks = st_provider.chunk(text, 3, 1)
+
+    assert chunks == snapshot
+
+
 def test_search(st_provider, snapshot):
     corpus = [
         "The name of the dog is Kevin",
