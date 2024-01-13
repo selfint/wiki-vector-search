@@ -5,7 +5,7 @@ from numpy.typing import NDArray
 from sentence_transformers import SentenceTransformer
 from sentence_transformers.util import semantic_search
 from torch import Tensor
-from transformers import AutoTokenizer, PreTrainedTokenizerFast
+from transformers import AutoTokenizer
 
 from ..llm_provider import LLMProvider
 
