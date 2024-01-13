@@ -50,6 +50,7 @@ plugins:
         import:
         - https://docs.python.org/3/objects.inv
         - https://wikipedia-api.readthedocs.io/en/latest/objects.inv
+        - https://www.sbert.net/objects.inv
         options:
           extensions:
           - griffe_typingdoc
