@@ -16,3 +16,7 @@ Or install directly from the source on GitHub:
 ```sh
 $ pip install git+https://github.com/selfint/wikitool
 ```
+
+## Search Wikipedia
+
+See the [search examples][wikitool.WikiTool.search] in the [Code Reference](reference).
