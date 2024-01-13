@@ -12,6 +12,7 @@ class LLMProvider(Protocol[T]):
 
     def chunk(
         self,
+        header: str,
         text: str,
         size: int | None = None,
         overlap: int | None = None,

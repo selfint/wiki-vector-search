@@ -66,6 +66,7 @@ class STProvider(LLMProvider[T]):
 
     def chunk(
         self,
+        header: str,
         text: str,
         size: int | None = None,
         overlap: int | None = None,
@@ -85,6 +86,12 @@ class STProvider(LLMProvider[T]):
         if len(text) <= 1:
             return [text]
 
+        header_size = 0 if len(header) == 0 else len(self._tokenizer.tokenize(header))
+
+        assert header_size < size, "Got header text larger than chunk size"
+
+        size -= header_size
+
         tokens = self._tokenizer(
             text,
             max_length=size,
@@ -98,7 +105,7 @@ class STProvider(LLMProvider[T]):
         token_offsets: list[list[tuple[int, int]]] = tokens["offset_mapping"]  # type: ignore
         chunk_offsets = [(offsets[0][0], offsets[-1][1]) for offsets in token_offsets]
 
-        chunks = [text[start:end] for start, end in chunk_offsets]
+        chunks = [header + text[start:end] for start, end in chunk_offsets]
 
         return chunks
 
